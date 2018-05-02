@@ -22,7 +22,6 @@ export class AppComponent {
     if(this.selectedKeg === null) {
       this.selectedKeg = currentKeg;
     } else {
-      console.log("Hello?!")
       this.selectedKeg = null;
     }
   }
@@ -32,7 +31,6 @@ export class AppComponent {
 
   buyPint(currentKeg){
     currentKeg.sellPint();
-    console.log(currentKeg.volume)
   }
   editKeg(currentKeg){
     this.editableKeg = currentKeg;
@@ -54,5 +52,10 @@ export class AppComponent {
     if (currentKeg.volume <= 10) {
         return "almost-empty";
     }
+  }
+
+  fontSize(currentKeg) {
+    console.log(((currentKeg.alcoholContent -4)*2)/6 + 5);
+    return ((currentKeg.alcoholContent -4)*2)/6 + 5;
   }
 }
