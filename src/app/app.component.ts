@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Keg } from './model/keg.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Tap Room';
+  selectedKeg =null;
+  kegArray: Keg[]=[
+    new Keg("Double IPA", "Yummy Beer", 6, 6.8),
+    new Keg("Koelsch", "Fancy Beer", 7, 4.8),
+    new Keg("Hefeweizen", "Deutsches Bier", 7, 5.4),
+    new Keg("Imperial Stout", "Cali Brew", 9, 7.9),
+    new Keg("Lager", "Generic Beer", 4, 4.6),
+  ]
+
+  viewDetails(currentKeg){
+    this.selectedKeg = currentKeg;
+  }
+  addKeg(nameInput, brandInput, priceInput, alcoholContentInput){
+    this.kegArray.push(new Keg(nameInput, brandInput, priceInput, alcoholContentInput));
+  }
 }
