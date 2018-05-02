@@ -8,7 +8,8 @@ import { Keg } from './model/keg.model';
 })
 export class AppComponent {
   title = 'Tap Room';
-  selectedKeg =null;
+  selectedKeg = null;
+  editableKeg = null;
   kegArray: Keg[]=[
     new Keg("Double IPA", "Yummy Beer", 6, 6.8),
     new Keg("Koelsch", "Fancy Beer", 7, 4.8),
@@ -22,5 +23,25 @@ export class AppComponent {
   }
   addKeg(nameInput, brandInput, priceInput, alcoholContentInput){
     this.kegArray.push(new Keg(nameInput, brandInput, priceInput, alcoholContentInput));
+  }
+
+  buyPint(currentKeg){
+    currentKeg.sellPint();
+    console.log(currentKeg.volume)
+  }
+  editKeg(currentKeg){
+    this.editableKeg = currentKeg;
+  }
+  finishEdit(){
+    this.editableKeg = null;
+  }
+  priceColor(currentKeg) {
+    if(currentKeg.price < 6){
+      return "bg-info";
+    } else if (currentKeg.price >= 6 && currentKeg.price < 8) {
+      return "bg-warning";
+    } else if (currentKeg.price >= 8) {
+      return "bg-danger";
+    }
   }
 }
