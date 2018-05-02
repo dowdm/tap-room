@@ -19,7 +19,12 @@ export class AppComponent {
   ]
 
   viewDetails(currentKeg){
-    this.selectedKeg = currentKeg;
+    if(this.selectedKeg === null) {
+      this.selectedKeg = currentKeg;
+    } else {
+      console.log("Hello?!")
+      this.selectedKeg = null;
+    }
   }
   addKeg(nameInput, brandInput, priceInput, alcoholContentInput){
     this.kegArray.push(new Keg(nameInput, brandInput, priceInput, alcoholContentInput));
@@ -42,6 +47,12 @@ export class AppComponent {
       return "bg-warning";
     } else if (currentKeg.price >= 8) {
       return "bg-danger";
+    }
+  }
+
+  volumeCheck(currentKeg) {
+    if (currentKeg.volume <= 10) {
+        return "almost-empty";
     }
   }
 }

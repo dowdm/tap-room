@@ -3,7 +3,9 @@ export class Keg{
   constructor(public name: string, public brand: string, public price: number, public alcoholContent: number){}
 
   sellPint(){
-    this.volume--;
-    return this.volume;
+    if(this.volume > 0){
+      this.volume--;
+      return this.volume;
+    }
   }
 }

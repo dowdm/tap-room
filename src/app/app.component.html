@@ -7,7 +7,7 @@
 </div>
 <h2>Beer List: </h2>
 <div *ngFor='let currentKeg of kegArray'>
-  <h3 (click)="viewDetails(currentKeg)" [class]="priceColor(currentKeg)">{{currentKeg.name}} by {{currentKeg.brand}}- ${{currentKeg.price}}<button (click)="buyPint(currentKeg)" type="button" name="buy">Buy a pint</button><button (click)="editKeg(currentKeg)" type="button" name="edit">Edit Keg</button></h3>
+  <h3 (click)="viewDetails(currentKeg)" [class]="priceColor(currentKeg)">{{currentKeg.name}} by {{currentKeg.brand}}- ${{currentKeg.price}}<button (click)="buyPint(currentKeg)" type="button" name="buy" [class]="volumeCheck(currentKeg)">Buy a pint</button><button (click)="editKeg(currentKeg)" type="button" name="edit">Edit Keg</button></h3>
   <div *ngIf="selectedKeg === currentKeg">
     <p>Alcohol Content: {{currentKeg.alcoholContent}}%</p>
     <p>Remaining Pints: {{currentKeg.volume}}/124</p>
