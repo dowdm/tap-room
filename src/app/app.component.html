@@ -6,27 +6,13 @@
   <img width="400" alt="Angular Logo" src="../assets/welcome.jpg">
 </div>
 <h2>Beer List: </h2>
-<div *ngFor='let currentKeg of kegArray'>
-  <font [size] ="fontSize(currentKeg)" (click)="viewDetails(currentKeg)" [class]="priceColor(currentKeg)">{{currentKeg.name}} by {{currentKeg.brand}}- ${{currentKeg.price}}</font><button (click)="buyPint(currentKeg)" type="button" name="buy" [class]="volumeCheck(currentKeg)">Buy a pint</button><button (click)="editKeg(currentKeg)" type="button" name="edit">Edit Keg</button>
-  <div *ngIf="selectedKeg === currentKeg">
-    <p>Alcohol Content: {{currentKeg.alcoholContent}}%</p>
-    <p>Remaining Pints: {{currentKeg.volume}}/124</p>
-  </div>
-  <div *ngIf="editableKeg === currentKeg">
-    <input [(ngModel)]="currentKeg.name" type="text" name="name" placeholder="Beer Name" required>
-    <input [(ngModel)]="currentKeg.brand" type="text" name="brand" placeholder="Brewery" required>
-    <input [(ngModel)]="currentKeg.price" type="number" name="price" placeholder="Price" required>
-    <input [(ngModel)]="currentKeg.alcoholContent" type="number" name="alcohol" placeholder="Alcohol Content" required>
-    <button (click)="finishEdit()"type="button" name="button">Commit Edit</button>
-  </div>
-</div>
-<form>
+  <app-keg-list [childKegArray]="masterKegArray" (clickSender)="editKeg($event)"></app-keg-list>
+  <app-edit-keg [childSelectedKeg]="selectedKeg" (clickedDone)="finishEdit()"></app-edit-keg>
+<!-- <form>
   <h3>Add a Keg</h3>
   <input [(ngModel)]="nameInput" type="text" name="name" placeholder="Beer Name" required>
   <input [(ngModel)]="brandInput" type="text" name="brand" placeholder="Brewery" required>
   <input [(ngModel)]="priceInput" type="number" name="price" placeholder="Price" required>
   <input [(ngModel)]="alcoholContentInput" type="number" name="alcohol" placeholder="Alcohol Content" required>
   <button (click)="addKeg(nameInput, brandInput, priceInput, alcoholContentInput)"type="button" name="button">Add Keg!</button>
-
-
-</form>
+</form> -->

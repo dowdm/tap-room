@@ -1,3 +1,7 @@
-<p>
-  edit-keg works!
-</p>
+<div *ngIf="childSelectedKeg">
+  <input [(ngModel)]="childSelectedKeg.name" type="text" name="name" placeholder="Beer Name" required>
+  <input [(ngModel)]="childSelectedKeg.brand" type="text" name="brand" placeholder="Brewery" required>
+  <input [(ngModel)]="childSelectedKeg.price" type="number" name="price" placeholder="Price" required>
+  <input [(ngModel)]="childSelectedKeg.alcoholContent" type="number" name="alcohol" placeholder="Alcohol Content" required>
+  <button (click)="finishedEditing()"type="button" name="button">Commit Edit</button>
+</div>
