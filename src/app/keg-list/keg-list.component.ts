@@ -11,6 +11,12 @@ export class KegListComponent {
   @Output () clickSender = new EventEmitter();
   selectedKeg = null;
 
+  sortByFilter: string = "";
+
+  onChange(optionFromMenu) {
+    this.sortByFilter = optionFromMenu;
+  }
+
   editButtonClicked(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);
   }
