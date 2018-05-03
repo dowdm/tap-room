@@ -7,8 +7,10 @@ import { Keg } from './model/keg.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  //variable used on root html
   title = 'Tap Room';
-  selectedKeg = null;
+  //sets edit-keg vi
+  editableKeg = null;
 
   masterKegArray: Keg[]=[
     new Keg("Double IPA", "Yummy Beer", 6, 6.8),
@@ -19,13 +21,11 @@ export class AppComponent {
   ];
 
   editKeg(currentKeg){
-    this.selectedKeg = currentKeg;
-    console.log(this.selectedKeg);
-    console.log(currentKeg);
+    this.editableKeg = currentKeg;
   }
 
   finishEdit(){
-    this.selectedKeg = null;
+    this.editableKeg = null;
   }
 
   addKeg(newKeg: Keg) {

@@ -1,11 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
+    <!--title is declared in root ts -->
     Welcome to Matt and Matt's {{ title }}!
   </h1>
+  <!-- image is stored in asset folder-->
   <img width="400" alt="Angular Logo" src="../assets/welcome.jpg">
 </div>
-<h2>Beer List: </h2>
+  <!-- keg-list selector from keg-list component. childKegArray(exists in child) is list of Keg objects in keg-list component that is defined as masterKegArray(exists in parent) to move data down. clickSender is EventEmitter that, when editButtonClicked is clicked, emits kegToEdit from keg-list component to root, initializing editKeg function with kegToEdit as argument.  -->
   <app-keg-list [childKegArray]="masterKegArray" (clickSender)="editKeg($event)"></app-keg-list>
-  <app-edit-keg [childSelectedKeg]="selectedKeg" (clickedDone)="finishEdit()"></app-edit-keg>
+  <!-- edit-keg selector from edit-keg component. childEditableKeg(exists in child) is Keg object in edit-keg component that is defined as editableKeg(exists in parent) to move data down. clickedDone is an EventEmitter(action up) in edit-keg component that carries click message to root, initiating finishEdit function to release selection -->
+  <app-edit-keg [childEditableKeg]="editableKeg" (clickedDone)="finishEdit()"></app-edit-keg>
+  <!-- new-keg selector from new-keg component. sendKeg is EventEmitter(action up) from new-keg component that carries newKeg variable created in new-keg component to root component, as argument to addKeg function -->
   <app-new-keg (sendKeg)="addKeg($event)"></app-new-keg>

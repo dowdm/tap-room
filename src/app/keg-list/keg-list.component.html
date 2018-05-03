@@ -1,3 +1,4 @@
+<h2>Beer List: </h2>
 <div *ngFor='let currentKeg of childKegArray'>
   <font [size] ="fontSize(currentKeg)" (click)="viewDetails(currentKeg)" [class]="priceColor(currentKeg)">{{currentKeg.name}} by {{currentKeg.brand}}- ${{currentKeg.price}}</font><button (click)="buyPint(currentKeg)" type="button" name="buy" [class]="volumeCheck(currentKeg)">Buy a pint</button><button (click)="editButtonClicked(currentKeg)" type="button" name="edit">Edit Keg</button>
   <div *ngIf="selectedKeg === currentKeg">
