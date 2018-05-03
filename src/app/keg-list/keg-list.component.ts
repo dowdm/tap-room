@@ -11,7 +11,12 @@ export class KegListComponent {
   @Output () clickSender = new EventEmitter();
   selectedKeg = null;
 
-  sortByFilter: string = "";
+  sortByFilter: string = "a";
+  searchByFilter: string = "";
+
+  runSearch(searchString) {
+    this.searchByFilter = searchString;
+  }
 
   onChange(optionFromMenu) {
     this.sortByFilter = optionFromMenu;

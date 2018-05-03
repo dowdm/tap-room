@@ -1,3 +1,5 @@
+<input #searchTerm type="text">
+<button (click)="runSearch(searchTerm.value)" type="button" name="search-button">Search</button>
 <h2>Beer List: </h2>
 <label for="sort">Sort By:</label>
 <select (change)="onChange($event.target.value)">
@@ -5,7 +7,7 @@
   <option value="price">Price</option>
 </select>
 
-<div *ngFor='let currentKeg of childKegArray | sort:sortByFilter'>
+<div *ngFor='let currentKeg of childKegArray | sort:sortByFilter | search:searchByFilter'>
   <font [size] ="fontSize(currentKeg)" (click)="viewDetails(currentKeg)" [class]="priceColor(currentKeg)">{{currentKeg.name}} by {{currentKeg.brand}}- ${{currentKeg.price}}</font><button (click)="buyPint(currentKeg)" type="button" name="buy" [class]="volumeCheck(currentKeg)">Buy a pint</button><button (click)="editButtonClicked(currentKeg)" type="button" name="edit">Edit Keg</button>
   <div *ngIf="selectedKeg === currentKeg">
     <p>Alcohol Content: {{currentKeg.alcoholContent}}%</p>

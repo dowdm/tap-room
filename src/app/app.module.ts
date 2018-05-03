@@ -7,7 +7,7 @@ import { KegListComponent } from './keg-list/keg-list.component';
 import { EditKegComponent } from './edit-keg/edit-keg.component';
 import { NewKegComponent } from './new-keg/new-keg.component';
 import { SortPipe } from './sort.pipe';
-
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { SortPipe } from './sort.pipe';
     KegListComponent,
     EditKegComponent,
     NewKegComponent,
-    SortPipe
+    SortPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
