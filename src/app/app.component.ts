@@ -28,8 +28,9 @@ export class AppComponent {
     this.selectedKeg = null;
   }
 
+  addKeg(newKeg: Keg) {
+    this.masterKegArray.push(newKeg);
+  }
 
-  // addKeg(nameInput, brandInput, priceInput, alcoholContentInput){
-  //   this.kegArray.push(new Keg(nameInput, brandInput, priceInput, alcoholContentInput));
-  // }
+
 }

@@ -8,11 +8,4 @@
 <h2>Beer List: </h2>
   <app-keg-list [childKegArray]="masterKegArray" (clickSender)="editKeg($event)"></app-keg-list>
   <app-edit-keg [childSelectedKeg]="selectedKeg" (clickedDone)="finishEdit()"></app-edit-keg>
-<!-- <form>
-  <h3>Add a Keg</h3>
-  <input [(ngModel)]="nameInput" type="text" name="name" placeholder="Beer Name" required>
-  <input [(ngModel)]="brandInput" type="text" name="brand" placeholder="Brewery" required>
-  <input [(ngModel)]="priceInput" type="number" name="price" placeholder="Price" required>
-  <input [(ngModel)]="alcoholContentInput" type="number" name="alcohol" placeholder="Alcohol Content" required>
-  <button (click)="addKeg(nameInput, brandInput, priceInput, alcoholContentInput)"type="button" name="button">Add Keg!</button>
-</form> -->
+  <app-new-keg (sendKeg)="addKeg($event)"></app-new-keg>

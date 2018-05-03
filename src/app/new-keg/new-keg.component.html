@@ -1,3 +1,8 @@
-<p>
-  new-keg works!
-</p>
+<form>
+  <h3>Add a Keg</h3>
+  <input #newName type="text" name="name" placeholder="Beer Name" required>
+  <input #newBrand type="text" name="brand" placeholder="Brewery" required>
+  <input #newPrice type="number" name="price" placeholder="Price" required>
+  <input #newAlcohol type="number" name="alcohol" placeholder="Alcohol Content" required>
+  <button (click)="addKeg(newName.value, newBrand.value, newPrice.value, newAlcohol.value); newName.value=''; newBrand.value=''; newPrice.value=''; newAlcohol.value='';" type="button" name="button">Add Keg!</button>
+</form>

@@ -1,4 +1,5 @@
 <div *ngIf="childSelectedKeg">
+  <h3>Edit {{childSelectedKeg.name}}</h3>
   <input [(ngModel)]="childSelectedKeg.name" type="text" name="name" placeholder="Beer Name" required>
   <input [(ngModel)]="childSelectedKeg.brand" type="text" name="brand" placeholder="Brewery" required>
   <input [(ngModel)]="childSelectedKeg.price" type="number" name="price" placeholder="Price" required>
